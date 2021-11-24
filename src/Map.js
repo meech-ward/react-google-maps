@@ -51,11 +51,16 @@ function Map({ coords, destination }) {
       if (status == "OK") {
         directionsRenderer.setDirections(result)
       }
+
+      if (status != "OK") {
+        console.log("Something went wrong with routing")
+      }
     })
   }
 
 
   function handleGoogleMapApi(details) {
+
     maps = details.maps
     map = details.map
 
