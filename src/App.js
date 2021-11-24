@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react'
+
 import './App.css';
 
+import Map from './Map'
+
+const bcit = {
+  latitude: 49.28357705407476,
+  longitude: -123.11524407215198
+}
+
 function App() {
+  const [destination, setDestination] = useState(null)
+
+  function updateDesition() {
+    setDestination(bcit)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={updateDesition}>Go!</button>
+      <Map destination={destination}></Map>
     </div>
-  );
+  )
 }
 
 export default App;
